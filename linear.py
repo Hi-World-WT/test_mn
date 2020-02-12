@@ -21,11 +21,11 @@ data_iter=gdata.DataLoader(dataset,batch_size,shuffle=True)
  
 #======================定义模型
 net = nn.Sequential()#这一开始是空的，定义的容器
-net.collect_params().initialize(mxnet.init.Xavier(), ctx=mxnet.cpu())
+net.collect_params().initialize(init.Xavier(), ctx=mxnet.cpu())
 net.add(nn.Dense(1))
  
 # =========================初始化模型参数
-#net.initialize(init.Normal(sigma=0.01))
+net.initialize(init.Normal(sigma=0.01))
  
 #====================定义损失函数
 loss=gloss.L2Loss()#平方损失又称L2范数损失
