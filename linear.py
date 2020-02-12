@@ -20,6 +20,7 @@ dataset=gdata.ArrayDataset(features,labels)
 data_iter=gdata.DataLoader(dataset,batch_size,shuffle=True)
  
 #======================定义模型
+net.collect_params().initialize(mxnet.init.Xavier(), ctx=mxnet.cpu())
 net = nn.Sequential()#这一开始是空的，定义的容器
 net.add(nn.Dense(1))
  
